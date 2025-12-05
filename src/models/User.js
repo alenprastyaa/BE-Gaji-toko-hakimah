@@ -4,7 +4,7 @@ const sequelize = require("../config/database");
 const bcrypt = require("bcryptjs");
 
 const User = sequelize.define(
-  "User",
+  "Users",
   {
     id: {
       type: DataTypes.UUID,
@@ -53,7 +53,6 @@ const User = sequelize.define(
         }
       },
     },
-    tableName: "Users",
     freezeTableName: true,
 
     timestamps: true,
