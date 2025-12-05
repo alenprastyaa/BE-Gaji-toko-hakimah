@@ -20,7 +20,7 @@ const initializeDatabase = async () => {
   try {
     await sequelize.authenticate();
     console.log("Database connection established successfully.");
-    initializeAssociations();
+    // initializeAssociations();
     await sequelize.sync({ alter: true });
     console.log("All models synchronized successfully.");
 
