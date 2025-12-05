@@ -25,6 +25,7 @@ const Bon = sequelize.define(
     userId: {
       // Foreign Key untuk menghubungkan bon dengan karyawan
       type: DataTypes.UUID,
+      allowNull: true,
       references: {
         model: User, // Merujuk ke tabel Users
         key: "id",
