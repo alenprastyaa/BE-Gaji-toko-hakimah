@@ -61,7 +61,7 @@ const cutiController = {
       const cuti = await Cuti.findByPk(id, {
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap", "email", "jabatan"],
         },
       });
@@ -91,7 +91,6 @@ const cutiController = {
     }
   },
 
-  // BARU: Mendapatkan cuti milik user yang sedang login
   async getMyCuti(req, res) {
     try {
       const userId = req.user.id; // Dari middleware auth
@@ -114,7 +113,7 @@ const cutiController = {
         where: whereCondition,
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap"],
         },
         order: [["tanggalMulai", "DESC"]],
@@ -204,7 +203,7 @@ const cutiController = {
         },
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap", "email"],
         },
       });
@@ -321,7 +320,7 @@ const cutiController = {
       const createdCutiWithKaryawan = await Cuti.findByPk(newCuti.id, {
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap"],
         },
       });
@@ -423,7 +422,7 @@ const cutiController = {
       const createdCutiWithKaryawan = await Cuti.findByPk(newCuti.id, {
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap"],
         },
       });
@@ -446,7 +445,6 @@ const cutiController = {
     }
   },
 
-  // Memperbarui data cuti (Admin Only)
   async updateCuti(req, res) {
     try {
       const { id } = req.params;
@@ -491,7 +489,7 @@ const cutiController = {
       const updatedCutiWithKaryawan = await Cuti.findByPk(cuti.id, {
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap"],
         },
       });
@@ -544,7 +542,7 @@ const cutiController = {
       const updatedCutiWithKaryawan = await Cuti.findByPk(cuti.id, {
         include: {
           model: User,
-          as: "karyawan",
+          as: "pemohon",
           attributes: ["id", "username", "namaLengkap", "email"],
         },
       });
